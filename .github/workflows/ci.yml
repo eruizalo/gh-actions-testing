@@ -1,4 +1,6 @@
-on: 
+name: CI
+
+on:
   workflow_dispatch:
     inputs:
       logLevel:
@@ -6,12 +8,26 @@ on:
         required: true
         default: 'warning'
       tags:
+        required: false
         description: 'Test scenario tags'
 
 jobs:
-  printInputs:
+  printEnv:
     runs-on: ubuntu-latest
     steps:
-    - run: |
-        echo "Log level: ${{ github.event.inputs.logLevel }}"
-        echo "Tags: ${{ github.event.inputs.tags }}" 
+        - run: env
+        - run: echo "${{env.github.GITHUB_REPOSITORY}}"
+        - run: echo "${{env.GITHUB_REPOSITORY}}"
+        - run: echo "${{github.repository}}"
+        - run: echo "${{github.GITHUB_REPOSITORY}}"
+  printInputs:
+    uses: ./.github/workflows/rw_echo.yml
+    with:
+      logLevel: ${{github.event.inputs.logLevel}}
+      tags: ${{github.event.inputs.tags}}
+  printInputs2:
+    needs: printInputs
+    uses: ./.github/workflows/rw_echo.yml
+    with:
+      logLevel: ${{github.event.inputs.logLevel}}
+      tags: ${{github.event.inputs.tags}}

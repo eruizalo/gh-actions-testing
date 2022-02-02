@@ -1,0 +1,20 @@
+name: echo
+
+on:
+  workflow_call:
+    inputs:
+      logLevel:
+        required: true
+        type: string
+      tags:
+        required: false
+        type: string
+
+jobs:
+  printInputs:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "1-"
+          echo "Log level: ${{ inputs.logLevel }}"
+          echo "Tags: ${{ inputs.tags }}"
