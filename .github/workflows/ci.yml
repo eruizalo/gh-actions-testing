@@ -20,6 +20,18 @@ jobs:
         - run: echo "${{env.GITHUB_REPOSITORY}}"
         - run: echo "${{github.repository}}"
         - run: echo "${{github.GITHUB_REPOSITORY}}"
+  custom_action:
+    runs-on: ubuntu-latest
+    name: A job to list files and echo
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - run: ls -lRa
+        shell: bash
+      - name: foo
+        uses: ./.github/actions/list
   printInputs:
     uses: ./.github/workflows/rw_echo.yml
     with:

@@ -1,0 +1,12 @@
+name: "fetch"
+description: "list the project"
+
+runs:
+  using: "composite"
+  steps:
+    - name: "list files"
+      run: ls -lRa
+      shell: bash
+    - name: "echo"
+      run: echo "this test works"
+      shell: bash
