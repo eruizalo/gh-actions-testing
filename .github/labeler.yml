@@ -1,0 +1,8 @@
+ci:
+  - .github/**/*
+
+documentation:
+  - doc/**/*
+
+enhancement:
+  - src/**/*
