@@ -24,7 +24,7 @@ Scan through our [existing issues](https://github.com/github/docs/issues)
 to find one that interests you. As a general rule, we don’t assign issues to anyone.
 If you find an issue to work on, you are welcome to open a PR with a fix.
 
-### Code contribution
+### Code contribution 
 
 Please, follow the official [Scala style guide](http://docs.scala-lang.org/style/).
 We also use `scalafmt` to check and format scala code, so you could use
