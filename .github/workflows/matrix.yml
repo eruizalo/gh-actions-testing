@@ -5,6 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
+        site: [ "edu1", "edu2" ]
+        datacenter: [ "datacenter" ]
         include:
           - node-version: 10.x
             site: "prod"
