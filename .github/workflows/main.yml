@@ -24,9 +24,9 @@ jobs:
     steps:
       - uses: yogevbd/enforce-label-action@2.1.0
         with:
-          REQUIRED_LABELS_ANY: "bug,enhancement,skip-changelog"
-          REQUIRED_LABELS_ANY_DESCRIPTION: "Select at least one label ['bug','enhancement','skip-changelog']"
-          BANNED_LABELS: "banned"
+          REQUIRED_LABELS_ANY: "fix,enhancement,feature,CI/CD,dependencies,documentation"
+          REQUIRED_LABELS_ANY_DESCRIPTION: "Select at least one label ['fix','enhancement','feature','CI/CD','dependencies','documentation']"
+          BANNED_LABELS: "banned,wontfix,wontdo"
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
