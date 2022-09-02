@@ -14,13 +14,13 @@ jobs:
         uses: JoshuaTheMiller/conditional-build-matrix@main
         with:
           # The simple branch name can be used in the filter now!
-          filter: '[?runOnBranch==`always`]'
+          filter: '[]'
   build:
     needs: matrix_prep
     strategy:
       matrix: ${{fromJson(needs.matrix_prep.outputs.matrix)}}
     name: Build
-    runs-on: ${{ matrix.runs_on }}
+    runs-on: ubuntu-latest
     steps:
       - name: Echo
-        run: echo "${{ matrix.runOn }}"
+        run: echo "${{ matrix.spark }} ${{ matrix.scope }}"
