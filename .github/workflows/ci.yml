@@ -12,6 +12,21 @@ on:
         description: 'Test scenario tags'
 
 jobs:
+  context_dump:
+    runs-on: ubuntu-latest
+    steps:
+      - name: <DEBUG> Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: |
+          echo "$GITHUB_CONTEXT"
+        shell: bash
+      - name: <DEBUG> Dump GitHub context output
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: |
+          echo "myContext=$GITHUB_CONTEXT" >> $GITHUB_OUTPUT
+        shell: bash
   printEnv:
     runs-on: ubuntu-latest
     steps:
