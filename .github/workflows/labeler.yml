@@ -16,3 +16,9 @@ jobs:
         run: |
           echo "$GITHUB_CONTEXT"
         shell: bash
+      - uses: eruizalo/github-action-todo-commenter@feat/12-pull_request_target
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+          ignore-pattern: '.js$|.snap$'
+          review-message: "There are some TODOs to fix. Please take a look :eyes:"
+          tags: "TODO,@todo"
