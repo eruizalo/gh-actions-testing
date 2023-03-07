@@ -16,3 +16,4 @@ jobs:
         run: |
           echo "$GITHUB_CONTEXT"
         shell: bash
+        # TODO something should be done in CI
